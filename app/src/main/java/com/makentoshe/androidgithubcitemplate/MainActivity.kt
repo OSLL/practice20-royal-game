@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.core.view.GravityCompat
 import com.github.mikephil.charting.data.LineData
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,6 +15,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        menuButton.setOnClickListener{
+            drawer_layout.openDrawer(GravityCompat.START)
+        }
 
         infoButton.setOnClickListener{
             val infoIntent = Intent(this, InfoActivity::class.java)
@@ -32,5 +39,6 @@ class MainActivity : AppCompatActivity() {
         val revenueComp2 = arrayListOf(12000f, 23000f, 35000f, 48000f)*/
 
     }
+
 
 }

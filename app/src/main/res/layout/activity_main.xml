@@ -1,137 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121011"
-    >
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <!--  Navbar  -->
-    <ImageButton
-        android:id="@+id/menuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_menu_24"
-        android:tint="#eeeeee"
-        android:background="#121011"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="22dp"
-        android:textColor="#eeeeee"
-        android:text="Channel graph"
-        android:textSize="10pt"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/menuButton"/>
-
-    <ImageButton
-        android:id="@+id/pauseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_pause_24"
-        android:tint="#eeeeee"
-        android:background="#121011"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/shareButton" />
-
-    <ImageButton
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_play_arrow_24"
-        android:tint="#fcfc44"
-        android:background="@drawable/radio_flat_selected"
-        android:padding="2dp"
-        android:alpha="0"
-
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="23dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/shareButton" />
-
-    <ImageButton
-        android:id="@+id/shareButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_share_24"
-        android:tint="#eeeeee"
-        android:background="#121011"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/infoButton" />
-
-    <ImageButton
-        android:id="@+id/infoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_info_24"
-        android:tint="#eeeeee"
-        android:background="#121011"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!--  Mode check  -->
-
-    <!--  Content  -->
-    <RadioGroup
-        android:id="@+id/modeChoice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menuButton">
-        <RadioButton
-            android:id="@+id/mode1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="2,4GHz"
-            android:paddingVertical="2dp"
-            android:paddingHorizontal="6dp"
-            android:textColor="@drawable/radio_flat_text_selector"
-            android:textSize="12pt"
-            android:button="@android:color/transparent"
-            android:background="@drawable/radio_flat_selector"
-            android:layout_marginEnd="30dp"/>
-        <RadioButton
-            android:id="@+id/mode2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@android:color/transparent"
-            android:checked="true"
-            android:text="5GHz"
-            android:paddingVertical="2dp"
-            android:paddingHorizontal="6dp"
-            android:textColor="@drawable/radio_flat_text_selector"
-            android:textSize="12pt"
-            android:background="@drawable/radio_flat_selector" />
-    </RadioGroup>
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/channelsChart"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/modeChoice" />
+        android:layout_height="match_parent"
+        android:background="#121011">
+        <!-- Основной контейнер разметки -->
+        <!--  Navbar  -->
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="24dp"
+            android:background="#121011"
+            android:tint="#eeeeee"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_menu_24" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="247dp"
+            android:text="Channel graph"
+            android:textColor="#eeeeee"
+            android:textSize="10pt"
+            app:layout_constraintStart_toEndOf="@id/menuButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/pauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="25dp"
+            android:background="#121011"
+            android:tint="#eeeeee"
+            app:layout_constraintEnd_toStartOf="@id/shareButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_pause_24" />
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="23dp"
+            android:alpha="0"
+            android:background="@drawable/radio_flat_selected"
+            android:padding="2dp"
+
+            android:tint="#fcfc44"
+            app:layout_constraintEnd_toStartOf="@id/shareButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_play_arrow_24" />
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="25dp"
+            android:background="#121011"
+            android:tint="#eeeeee"
+            app:layout_constraintEnd_toStartOf="@id/infoButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_share_24" />
+
+        <ImageButton
+            android:id="@+id/infoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:background="#121011"
+            android:tint="#eeeeee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_info_24" />
+        <!--  Mode check  -->
+
+        <!--  Content  -->
+        <RadioGroup
+            android:id="@+id/modeChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menuButton">
+
+            <RadioButton
+                android:id="@+id/mode1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:checked="true"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="2,4GHz"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="12pt" />
+
+            <RadioButton
+                android:id="@+id/mode2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:checked="true"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="5GHz"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="12pt" />
+        </RadioGroup>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/channelsChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/modeChoice" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Контейнер, содержащий выдвижное меню -->
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer"
+        android:background="#121011"
+        app:itemTextColor="#eeeeee"
+        app:itemIconTint="#eeeeee"
+        android:layout_marginTop="80dp"
+        />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
