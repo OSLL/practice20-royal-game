@@ -25,15 +25,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="22dp"
         android:textColor="#eeeeee"
-        android:text="Menu item"
-        android:textSize="12pt"
+        android:text="Channel graph"
+        android:textSize="10pt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/menuButton"/>
 
     <ImageButton
-        android:id="@+id/actionButton"
+        android:id="@+id/pauseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_baseline_pause_24"
@@ -41,6 +41,21 @@
         android:background="#121011"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/shareButton" />
+
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_play_arrow_24"
+        android:tint="#fcfc44"
+        android:background="@drawable/radio_flat_selected"
+        android:padding="2dp"
+        android:alpha="0"
+
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="23dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/shareButton" />
 
@@ -76,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,65 +101,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="2,4GHz "
-            android:textColor="#fcfc44"
+            android:text="2,4GHz"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="6dp"
+            android:textColor="@drawable/radio_flat_text_selector"
             android:textSize="12pt"
-
+            android:button="@android:color/transparent"
             android:background="@drawable/radio_flat_selector"
-
             android:layout_marginEnd="30dp"/>
         <RadioButton
             android:id="@+id/mode2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:button="@android:color/transparent"
             android:checked="true"
-            android:text="5GHz "
-            android:textColor="#eeeeee"
+            android:text="5GHz"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="6dp"
+            android:textColor="@drawable/radio_flat_text_selector"
             android:textSize="12pt"
-            android:background="@drawable/radio_flat_selector"
-
-            />
+            android:background="@drawable/radio_flat_selector" />
     </RadioGroup>
 
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button 1"
-            style="?attr/materialButtonOutlinedStyle"
-            />
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button 2"
-            style="?attr/materialButtonOutlinedStyle"
-            />
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button 3"
-            style="?attr/materialButtonOutlinedStyle"
-            />
-    </com.google.android.material.button.MaterialButtonToggleGroup>
-
-
-    <LinearLayout
-        android:id="@+id/channelsGraphic"
-        android:orientation="horizontal"
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/channelsChart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        app:layout_constraintTop_toTopOf="@id/menuButton">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></ImageView>
-    </LinearLayout>
+        android:layout_marginTop="220dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/modeChoice" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
