@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.github.mikephil.charting.data.LineData
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             playButton.animate().alpha(1 - playButton.alpha).setDuration(200)
         }
 
+        /*val toggle = ActionBarDrawerToggle(
+            this, drawer_layout, toolbar, 0, 0
+        )
+        drawer_layout.addDrawerListener(toggle)*/
         /*val lineDataSets = arrayListOf(lineDataSet1, lineDataSet2)
         channelsChart.data = lineDataSets;
         channelsChart.invalidate()
@@ -40,5 +46,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.nav_network -> {
+                Toast.makeText(this, "Network clicked", Toast.LENGTH_SHORT).show()
+            }
+        }
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
+    }
 
 }
