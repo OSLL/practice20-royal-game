@@ -17,6 +17,9 @@ import com.github.mikephil.charting.data.LineData
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 
+class Element(val net: String, val inf: String){
+}
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,15 +53,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun generateFakeValues(): List<String> {
-        val values = mutableListOf<String>()
+    private fun generateFakeValues(): List<Element> {
+        val values = mutableListOf<Element>()
         for (i in 0..100){
-            values.add("$i element")
+            values.add(Element("$i element","hi"))
         }
         return values
     }
 
-    class Adapter(private val values: List<String>): RecyclerView.Adapter<Adapter.ViewHolder>(){
+    class Adapter(private val values: List<Element>): RecyclerView.Adapter<Adapter.ViewHolder>(){
         override fun getItemCount() = values.size
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -67,14 +70,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-            var textView: TextView? = null
+            var textView1: TextView? = null
+            var textView2: TextView? = null
             init{
-                textView = itemView?.findViewById(R.id.text_list_item)
+                textView1 = itemView?.findViewById(R.id.text_list_item1)
+                textView2 = itemView?.findViewById(R.id.text_list_item2)
             }
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder?.textView?.text = values[position]
+            holder?.textView1?.text = values[position].net
+            holder?.textView2?.text = values[position].inf
         }
     }
 }

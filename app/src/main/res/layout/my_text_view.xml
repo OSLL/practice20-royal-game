@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="72dp"
+    android:layout_height="wrap_content"
     android:paddingTop = "8dp"
     android:paddingBottom="8dp"
     android:paddingStart="8dp"
@@ -13,10 +13,20 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/text_list_item"
+        android:id="@+id/text_list_item1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:textColor="#eeeeee"
         tools:text = "ExampleList"/>
+    <TextView
+        android:id="@+id/text_list_item2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#eeeeee"
+        tools:text = "ExampleList"/>
+
 </LinearLayout>
